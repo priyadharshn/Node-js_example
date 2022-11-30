@@ -1,31 +1,52 @@
 
-const express = require("express"); // Importing the express module
-const app=express();                // Initializing the express and call      
+// const bodyParser = require("body-parser");
 
-const mongoose=require('mongoose');
+// const express = require("express"); // Importing the express module
+// const ejs=require("ejs")
+// const path=require("path")
 
-const connectdb = require("./db");
-connectdb();
+// const mongoose=require('mongoose');
+
+//  const routers=require("./routers");
+
+//  const app=express();                // Initializing the express and call      
+
+//  const regis=path.join(__dirname,'regis')
+
+// app.set('view engine','ejs')
+// app.set("views",regis)
+
+// app.use(bodyParser.json())
 
 
-//app.use('api',routers);
-app.use(express.json());                                  ////Calling the express.json() method for parsing
-//app.use('api',routers);
+// app.get('/',(err,res)=>{
+//        res.render('register')//{title:'Register'})
+//  })
+    
 
-const routers=require("./routers");
+
+// const connectdb = require("./db");
+// connectdb();
 
 
-app.use("/User",routers);
-app.use("/",(req,res)  =>                                   //middleware//accessing
- {
-     res.send("Nodejs")
- })
-const port=3000;                                           // Initializing the  port number
+// app.use(express.json());                                  ////Calling the express.json() method for parsing
 
-app.listen(port, () => {                                // Listening to the port
-    console.log(`Server Started at ${port}`);  
+
+
+
+
+// app.use("/User",routers);
+// app.use("/api",(req,res)  =>                                   //middleware//accessing
+//  {
+//      res.send("Nodejs")
+//  })
+// const port=3000;                                           // Initializing the  port number
+
+// app.listen(port, () => {                                // Listening to the port
+//     console.log(`Server Started at ${port}`);  
   
-})
+// })
+// -------------------------------------------------------------------------------
 
 //const ModelRouter = require('./routers');
 //app.use("Info",ModelRouter);
@@ -38,5 +59,45 @@ app.listen(port, () => {                                // Listening to the port
 //     console.log("DB connected");
 // })
 
+// ----------------------------------------------------------------------------------------------
 
 
+
+
+const express = require("express"); 
+
+const mongoose=require('mongoose');
+
+ const routers=require("./routers");
+
+ const bodyParser = require("body-parser");
+//  const ejs=require("ejs");
+
+
+ const app=express(); 
+ 
+
+const connectdb = require("./db");
+ connectdb();
+
+
+app.use(express.json());
+app.set('view engine','ejs')
+
+
+app.use(bodyParser.json())
+
+
+
+
+app.use("/",routers);
+// app.use("/api",(req,res)  =>                                   
+//  {
+//      res.send("Nodejs")
+//  })
+const port=3000;                                           
+
+app.listen(port, () => {                                
+    console.log(`Server Started at ${port}`);  
+  
+})
