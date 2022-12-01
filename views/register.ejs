@@ -37,16 +37,17 @@ background-size: cover;
     </style>
 </head>
 <body>
+    
     <div class="container">
         <h2 style="text-align: center;text-decoration: chocolate;">Registration Form</h2>
         <form action="/register" method="post">
             <div class="form-group">
-                <label for="name">User Name:</label>
+                <label for="name">UserName:</label>
                 <input type="text" class="form-control" name="UserName"  id="name" placeholder="enter username">
                 <p class="text-danger weight-bold"></p>
             </div>
             <div class="form-group">
-                <label for="mobilenumber">Mobile Number:</label>
+                <label for="mobilenumber">MobileNumber:</label>
                 <input type="number" class="form-control" name="MobileNumber" id="mno" placeholder="enter mobilenumber">
             </div>
             <div class="form-group">
@@ -58,14 +59,14 @@ background-size: cover;
                 <input type="password" class="form-control" name="Password" id="psw" placeholder="enter password">
             </div>
             <div class="form-group">
-                <label for="confirmpassword">Confirm Password:</label>
+                <label for="confirmpassword">ConfirmPassword:</label>
                 <input type="password" class="form-control" name="ConfirmPassword" id="conpass" placeholder="enter confirmpassword"><br>
-                <button type="submit" onclick="saveData()" class="btn btn-primary">Register</button>
+                <button type="submit"  class="btn btn-primary">Register</button>
             </div>
             </form>
     </div>
     <!-- <script>
-    function saveData(){
+    function saveData(){)
         let name,mno,email,filter,psw,conpass;
         name=document.getElementById("name").value;
         mno=document.getElementById("mno",mno).value;

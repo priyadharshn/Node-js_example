@@ -1,5 +1,6 @@
 const express= require("express");
 const router= express.Router();
+const homeSchema= require('./models/homeSchema');
 
 ////////const ModelRouter =require("./schema");
 
@@ -102,26 +103,31 @@ const router= express.Router();
 
 // ----------------------------------------------------------------------------------------------------------------
 
-router.get('/',(err,res)=>{
+router.get('/get',(err,res)=>{
     res.render("register");
 })
 
- router.post('/register',async(req,res)=>{
-try{
+ 
 
-const {
-    UserName
-   
+ 
 
+router.post('/register',async (req, res) => {
+    const data = new homeSchema({
+        UserName: req.body.UserName,
+        MobileNumber:req.body.MobileNumber,
+       Email: req.body.Email,
+       Password: req.body.Password,
+       ConfirmPassword: req.body.ConfirmPassword
+    })
+    
 
-} = req.body;
-console.log(UserName)
-
-}catch(error){
-res.render('register')
-}
+await data.save()
+res.status(200).json({
+    success:true,
+    status:200,
+    data
+});
 })
-
 
 
 
